@@ -1,0 +1,36 @@
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="vigilante" transaction-type="JTA">
+		<provider>org.hibernate.ogm.jpa.HibernateOgmPersistence</provider>
+		<mapping-file>META-INF/mapeamento.xml</mapping-file>
+		<class>br.com.fences.vigilanteentidade.negocio.Usuario</class>
+		<class>br.com.fences.vigilanteentidade.negocio.Alerta</class>
+		<properties>
+		
+		
+			<!-- 
+			<property name="hibernate.transaction.jta.platform"
+                      value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform" />
+ 			-->
+ 			<property name="hibernate.transaction.jta.platform" value="JBossTS"/>
+            <property name="hibernate.ogm.datastore.provider" value="mongodb" />
+
+			<property name="hibernate.ogm.datastore.host" value="localhost:27017"/>
+			<property name="hibernate.ogm.datastore.database" value="vigilante"/>
+			
+			<!-- 
+			<property name="hibernate.search.default.directory_provider" value="filesystem"/>
+			<property name="hibernate.search.default.indexBase" value="/Users/Amiguinho/Development/hibernate_search_indices/vigilante"/>
+		 	-->
+		 	
+		<!-- 
+			<property name="hibernate.ogm.datastore.host" value="ds035014.mongolab.com:35014"/>
+			<property name="hibernate.ogm.datastore.database" value="vigilante"/>
+			<property name="hibernate.ogm.datastore.username" value="proto"/>
+			<property name="hibernate.ogm.datastore.password" value="proto12"/>
+		 -->	
+		</properties>
+	</persistence-unit>
+</persistence>
